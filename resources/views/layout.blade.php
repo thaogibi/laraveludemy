@@ -8,7 +8,14 @@
 </head>
 <body>
   <div>
+    @if(session()->has('status'))
+      <div style="background-color:green">
+        {{ session()->get('status') }}
+      </div>
+    @endif
+
     @yield('content')
+    
   </div>
 </body>
 </html>

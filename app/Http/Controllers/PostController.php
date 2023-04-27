@@ -137,6 +137,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->delete();
+
+        session()->flash('status', 'Post "' . $post->title . '" was deleted!');
+        return redirect()->route('posts.index');
     }
 }
